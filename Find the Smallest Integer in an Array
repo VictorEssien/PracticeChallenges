@@ -1,0 +1,12 @@
+//Instruction: Create a function that takes an array of integers and returns the smallest integer in the set.
+
+using System;
+using System.Linq;
+
+public class Program
+{
+    public static int MinVal(int[] arr)
+    {
+        return arr.Min();
+    }
+}
