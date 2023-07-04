@@ -1,0 +1,31 @@
+#Instructions:
+#Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. 
+#If target exists, then return its index. Otherwise, return -1.
+
+#You must write an algorithm with O(log n) runtime complexity.
+
+from typing import List
+
+class binarySearch:
+    def binarySearch(self, nums: List[int], target: int):
+        nums = sorted(nums)
+        lower = 0              #Lower bounds
+        upper = len(nums)-1    #Upper bounds
+        
+        while lower <= upper:
+            mid = lower + (upper - lower) // 2
+            
+            #If the is on the leftside, adjust the upper
+            #bound
+            if target < nums[mid]:
+                upper = mid - 1
+                
+            elif target > nums[mid]:
+                lower = mid + 1
+            
+            else:
+                #Else return the index of the middle
+                return mid
+            
+        #In case all the conditions above fail, return -1
+        return -1
